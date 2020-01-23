@@ -1,9 +1,9 @@
-package com.cid.beans;
+package com.cid.model;
 
 import lombok.Data;
 
 @Data
-public class UserDto {
+public class User {
 	private int id;
 	private int departmentId;
 	private int teamId;
@@ -11,6 +11,6 @@ public class UserDto {
 	private String firstname;
 	private String lastname;
 	private String username;
-	private String password;
+	private String password;		
+		
 }
-

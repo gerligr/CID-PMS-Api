@@ -1,24 +1,21 @@
 package com.cid.dao;
 
-import java.util.ArrayList;
+import java.util.List;
 
-import javax.sql.DataSource;
-
-import com.cid.beans.UserDto;
-import com.cid.model.UserModel;
+import com.cid.model.User;
 
 public interface UserDao {
 	
-	void createUser(UserDto newUser);
+	void createUser(User newUser);
 		
 	void loadAllUsers();
 	
-	UserDto findById(int id);
+	User findById(int id);
 	
-	ArrayList<UserModel> findByTeamId(int teamId);
+	List<User> findByTeamId(int teamId);
 	
 	void deleteUser(int id);
 	
-	void updateUser(int id, UserDto userToUpdate);	
+	void updateUser(int id, User userToUpdate);			
 
 }
