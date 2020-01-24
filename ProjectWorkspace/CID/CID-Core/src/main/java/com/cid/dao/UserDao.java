@@ -2,13 +2,14 @@ package com.cid.dao;
 
 import java.util.List;
 
+import com.cid.beans.UserDto;
 import com.cid.model.User;
 
 public interface UserDao {
 	
-	void createUser(User newUser);
+	void createUser(UserDto userDto);
 		
-	void loadAllUsers();
+	List<User> loadAllUsers();
 	
 	User findById(int id);
 	
@@ -16,6 +17,6 @@ public interface UserDao {
 	
 	void deleteUser(int id);
 	
-	void updateUser(int id, User userToUpdate);			
+	void updateUser(int id, UserDto userDto);			
 
 }

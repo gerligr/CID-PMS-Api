@@ -16,7 +16,7 @@ import com.cid.dao.helpers.UserRowMapper;
 
 @Configuration
 @ComponentScan("com.cid.dao")
-@PropertySource("classpath:cid.database.properties")
+@PropertySource("classpath:database.properties")
 public class AppConfigCid {
 
 	private final String URL = "url";

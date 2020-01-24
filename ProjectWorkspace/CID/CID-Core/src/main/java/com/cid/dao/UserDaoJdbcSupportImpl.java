@@ -1,7 +1,11 @@
 package com.cid.dao;
 
-import static com.cid.dao.Queries.USER_BY_ID;
-import static com.cid.dao.Queries.USER_BY_TEAM_ID;
+import static com.cid.dao.Queries.GET_USER_BY_ID;
+import static com.cid.dao.Queries.GET_USER_BY_TEAM_ID;
+import static com.cid.dao.Queries.CREATE_USER;
+import static com.cid.dao.Queries.GET_ALL_USERS;
+import static com.cid.dao.Queries.DELETE_USER_BY_ID;
+import static com.cid.dao.Queries.UPDATE_USER_BY_ID;
 
 import java.util.List;
 
@@ -12,6 +16,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.support.JdbcDaoSupport;
 import org.springframework.stereotype.Repository;
 
+import com.cid.beans.UserDto;
 import com.cid.dao.helpers.UserRowMapper;
 import com.cid.model.User;
 
@@ -32,32 +37,32 @@ public class UserDaoJdbcSupportImpl extends JdbcDaoSupport implements UserDao{
 	
 	@Override
 	public User findById(int id) {
-		return getJdbcTemplate().queryForObject(USER_BY_ID,new Object[] { id }, userRowMapper);	
+		return getJdbcTemplate().queryForObject(GET_USER_BY_ID,new Object[] { id }, userRowMapper);	
 	}
 
 	@Override
 	public List<User> findByTeamId(int teamId) {
-		return getJdbcTemplate().query(USER_BY_TEAM_ID,new Object[] { teamId }, userRowMapper);	
+		return getJdbcTemplate().query(GET_USER_BY_TEAM_ID,new Object[] { teamId }, userRowMapper);	
 	}
 	
 	@Override
-	public void createUser(User newUser) {
-		// TODO Auto-generated method stub	
+	public void createUser(UserDto newUser) {
+		getJdbcTemplate().update(CREATE_USER, newUser.getDepartmentId(), newUser.getTeamId(), newUser.getRoleId(), newUser.getFirstname(), newUser.getLastname(), newUser.getUsername(), newUser.getPassword());
 	}
 
 	@Override
-	public void loadAllUsers() {
-		// TODO Auto-generated method stub		
+	public List<User> loadAllUsers() {
+		return getJdbcTemplate().query(GET_ALL_USERS, userRowMapper);		
 	}
 
 	@Override
 	public void deleteUser(int id) {
-		// TODO Auto-generated method stub		
+		getJdbcTemplate().update(DELETE_USER_BY_ID, id);		
 	}
 
 	@Override
-	public void updateUser(int id, User userToUpdate) {
-		// TODO Auto-generated method stub		
+	public void updateUser(int id, UserDto userToUpdate) {
+		getJdbcTemplate().update(UPDATE_USER_BY_ID, userToUpdate.getDepartmentId(), userToUpdate.getTeamId(), userToUpdate.getRoleId(), userToUpdate.getFirstname(), userToUpdate.getLastname(), userToUpdate.getUsername(), userToUpdate.getPassword(), id);
 	}
 
 }

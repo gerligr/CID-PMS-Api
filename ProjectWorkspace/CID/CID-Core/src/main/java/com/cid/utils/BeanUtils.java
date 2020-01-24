@@ -1,10 +1,9 @@
-package com.knits.spring.common.utils;
+package com.cid.utils;
 
-import com.knits.spring.common.beans.UserDto;
-import com.knits.spring.common.model.User;
+import com.cid.beans.UserDto;
+import com.cid.model.User;
 
 public class BeanUtils {
-
 	
 	public static User dto2Model(UserDto dto){
 		User user = new User();

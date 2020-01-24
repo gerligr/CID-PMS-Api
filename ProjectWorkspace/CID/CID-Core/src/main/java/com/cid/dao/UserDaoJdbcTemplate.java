@@ -1,26 +1,21 @@
 package com.cid.dao;
 
-import java.util.ArrayList;
+import static com.cid.dao.Queries.GET_USER_BY_ID;
+import static com.cid.dao.Queries.GET_USER_BY_TEAM_ID;
+import static com.cid.dao.Queries.CREATE_USER;
+import static com.cid.dao.Queries.GET_ALL_USERS;
+import static com.cid.dao.Queries.DELETE_USER_BY_ID;
+import static com.cid.dao.Queries.UPDATE_USER_BY_ID;
+
 import java.util.List;
-
-import javax.sql.DataSource;
-
-import lombok.Getter;
-import lombok.Setter;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
-import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
-import org.springframework.jdbc.core.namedparam.SqlParameterSource;
-import org.springframework.jdbc.core.namedparam.SqlParameterSourceUtils;
 import org.springframework.stereotype.Repository;
 
+import com.cid.beans.UserDto;
 import com.cid.dao.helpers.UserRowMapper;
 import com.cid.model.User;
-
-import static com.cid.dao.Queries.USER_BY_ID;
-import static com.cid.dao.Queries.USER_BY_TEAM_ID;
 
 @Repository
 public class UserDaoJdbcTemplate implements UserDao{
@@ -33,34 +28,36 @@ public class UserDaoJdbcTemplate implements UserDao{
 	
 	@Override
 	public User findById(int id) {
-		return jdbcTemplate.queryForObject(USER_BY_ID,new Object[] { id }, userRowMapper);			
+		return jdbcTemplate.queryForObject(GET_USER_BY_ID,new Object[] { id }, userRowMapper);			
 	}
 
 	@Override
 	public List<User> findByTeamId(int teamId) {		
-		return jdbcTemplate.query(USER_BY_TEAM_ID,new Object[] { teamId }, userRowMapper);	
+		return jdbcTemplate.query(GET_USER_BY_TEAM_ID,new Object[] { teamId }, userRowMapper);	
 	}
 
 	@Override
-	public void createUser(User newUser) {
-		throw new UnsupportedOperationException("Not yet implemented");		
+	public void createUser(UserDto newUser) {
+		jdbcTemplate.update(CREATE_USER, newUser.getDepartmentId(), newUser.getTeamId(), newUser.getRoleId(), newUser.getFirstname(), newUser.getLastname(), newUser.getUsername(), newUser.getPassword());	
 	}
 
 	@Override
-	public void loadAllUsers() {
-		throw new UnsupportedOperationException("Not yet implemented");			
+	public List<User> loadAllUsers() {
+		return jdbcTemplate.query(GET_ALL_USERS, userRowMapper);		
 	}
 
 	@Override
 	public void deleteUser(int id) {
-		throw new UnsupportedOperationException("Not yet implemented");		
+		jdbcTemplate.update(DELETE_USER_BY_ID, id);	
 	}
 	
 	@Override
-	public void updateUser(int id, User userToUpdate) {
-		throw new UnsupportedOperationException("Not yet implemented");	
+	public void updateUser(int id, UserDto userToUpdate) {
+		jdbcTemplate.update(UPDATE_USER_BY_ID, userToUpdate.getDepartmentId(), userToUpdate.getTeamId(), userToUpdate.getRoleId(), userToUpdate.getFirstname(), userToUpdate.getLastname(), userToUpdate.getUsername(), userToUpdate.getPassword(), id);	
 	}
+
+}
 
 	
 
-}
+
