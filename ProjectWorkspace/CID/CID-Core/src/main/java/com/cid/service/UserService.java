@@ -1,14 +1,28 @@
-package com.knits.spring.common.service;
+package com.cid.demo;
 
-import java.util.List;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
-import com.knits.spring.common.beans.UserDto;
+import com.cid.config.AppConfigCid;
+import com.cid.dao.UserDao;
+import com.cid.model.User;
 
-public interface UserService {
 
-	Long save(UserDto user);
+public class DemoCrudUser {
+
+	public static void main(String[] args) {		
+		
+		demoDaoImplByName("userDaoJdbcSupportImpl");
+		demoDaoImplByName("userDaoJdbcTemplate");
+		demoDaoImplByName("userDaoNamedParametersJdbcTemplate");		
+	}
 	
-	List<UserDto> findUsersByCity(String city);
 	
-	void updateUser (UserDto user);
+	private static void demoDaoImplByName(String daoBeanImpl){
+		ApplicationContext context = new AnnotationConfigApplicationContext(AppConfigCid.class);
+		UserDao userDao= context.getBean(daoBeanImpl,UserDao.class);
+		User user= userDao.findById(8);		
+		System.out.println("Found "+user.toString());
+	}
+
 }
