@@ -32,14 +32,14 @@ public class UserDaoNamedParametersJdbcTemplate implements UserDao {
 	private SimpleJdbcInsert simpleJdbcInsert = new SimpleJdbcInsert(dataSource).withTableName("cid").usingGeneratedKeyColumns("id");
 
 	@Override
-	public User findById(int id) {
+	public User findById(Long id) {
 		Map<String, Object> params = new HashMap<String, Object>();
 		params.put("id", id);
 		return namedJdbcTemplate.queryForObject("select * from USER where id=:id", params, userRowMapper);
 	}
 
 	@Override
-	public List<User> findByTeamId(int teamId) {
+	public List<User> findByTeamId(Long teamId) {
 		SqlParameterSource namedParameters = new MapSqlParameterSource().addValue("team_id", teamId);
 		return namedJdbcTemplate.query("select * from USER where team_id=:team_id", namedParameters, userRowMapper);
 	}
@@ -69,14 +69,14 @@ public class UserDaoNamedParametersJdbcTemplate implements UserDao {
 	}
 
 	@Override
-	public void deleteUser(int id) {
+	public void deleteUser(Long id) {
 		Map<String, Object> params = new HashMap<String, Object>();
 		params.put("id", id);
 		namedJdbcTemplate.update("delete from USER where id=:id", params);
 	}
 	
 	@Override
-	public void updateUser(int id, UserDto userToUpdate) {
+	public void updateUser(Long id, UserDto userToUpdate) {
 		throw new UnsupportedOperationException("Not yet implemented");
 
 	}

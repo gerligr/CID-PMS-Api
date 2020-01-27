@@ -11,12 +11,12 @@ public interface UserDao {
 		
 	List<User> loadAllUsers();
 	
-	User findById(int id);
+	User findById(Long id);
 	
-	List<User> findByTeamId(int teamId);
+	List<User> findByTeamId(Long teamId);
 	
-	void deleteUser(int id);
+	void deleteUser(Long id);
 	
-	void updateUser(int id, UserDto userDto);			
+	void updateUser(Long id, UserDto userDto);			
 
 }

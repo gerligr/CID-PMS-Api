@@ -36,12 +36,12 @@ public class UserDaoJdbcSupportImpl extends JdbcDaoSupport implements UserDao{
 	}
 	
 	@Override
-	public User findById(int id) {
+	public User findById(Long id) {
 		return getJdbcTemplate().queryForObject(GET_USER_BY_ID,new Object[] { id }, userRowMapper);	
 	}
 
 	@Override
-	public List<User> findByTeamId(int teamId) {
+	public List<User> findByTeamId(Long teamId) {
 		return getJdbcTemplate().query(GET_USER_BY_TEAM_ID,new Object[] { teamId }, userRowMapper);	
 	}
 	
@@ -56,12 +56,12 @@ public class UserDaoJdbcSupportImpl extends JdbcDaoSupport implements UserDao{
 	}
 
 	@Override
-	public void deleteUser(int id) {
+	public void deleteUser(Long id) {
 		getJdbcTemplate().update(DELETE_USER_BY_ID, id);		
 	}
 
 	@Override
-	public void updateUser(int id, UserDto userToUpdate) {
+	public void updateUser(Long id, UserDto userToUpdate) {
 		getJdbcTemplate().update(UPDATE_USER_BY_ID, userToUpdate.getDepartmentId(), userToUpdate.getTeamId(), userToUpdate.getRoleId(), userToUpdate.getFirstname(), userToUpdate.getLastname(), userToUpdate.getUsername(), userToUpdate.getPassword(), id);
 	}
 

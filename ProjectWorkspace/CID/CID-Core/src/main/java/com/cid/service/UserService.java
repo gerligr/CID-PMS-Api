@@ -15,8 +15,8 @@ public class UserService {
 	public static void main(String[] args) {
 
 		// userDaoImplByName("userDaoJdbcSupportImpl");
-		//userDaoImplByName("userDaoJdbcTemplate");
-		userDaoImplByName("userDaoNamedParametersJdbcTemplate");
+		userDaoImplByName("userDaoJdbcTemplate");
+		//userDaoImplByName("userDaoNamedParametersJdbcTemplate");
 	}
 
 	private static void userDaoImplByName(String daoBeanImpl) {
@@ -25,22 +25,22 @@ public class UserService {
 		UserDao userDao = context.getBean(daoBeanImpl, UserDao.class);
 
 		
-		User user= userDao.findById(60);
+		User user= userDao.findById(60L);
 		System.out.println("Found "+user.toString());
 	  
-		List<User> users = userDao.findByTeamId(2);
+		List<User> users = userDao.findByTeamId(2L);
 		System.out.println("Found "+users.toString());
 		 
 		 
 		userDao.createUser(CidMocks.mockUser());
 		
 		
-		 List<User> allUsers = userDao.loadAllUsers();
-		 System.out.println("Users are "+allUsers.toString());
+		List<User> allUsers = userDao.loadAllUsers();
+		System.out.println("Users are "+allUsers.toString());
 		  
-		 userDao.deleteUser(4);
+		userDao.deleteUser(4L);
 		  
-		 userDao.updateUser(6, CidMocks.mockUser2());
+		userDao.updateUser(6L, CidMocks.mockUser2());
 		 
 	}
 

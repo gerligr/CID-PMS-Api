@@ -6,9 +6,9 @@ import lombok.Data;
 
 @Data
 public class Sales {
-	private int id;
-	private int userId;
-	private int teamId;
+	private Long id;
+	private Long userId;
+	private Long teamId;
 	private Date date;
 	private int week;
 	private int eurPerHour;
