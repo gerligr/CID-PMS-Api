@@ -24,11 +24,13 @@ public class SalesService {
 		List<Sales> sales = salesDao.findByUserId(60L);
 		System.out.println("Users are " + sales.toString());
 		
-		List<Sales> teamSales = salesDao.findByTeamId(3L);
-		System.out.println("Found "+teamSales.toString());
-		  
-		Sales sales1= salesDao.findById(9L);
-		System.out.println("Found "+sales1.toString());
+		/*
+		 * List<Sales> teamSales = salesDao.findByTeamId(3L);
+		 * System.out.println("Found "+teamSales.toString());
+		 * 
+		 * Sales sales1= salesDao.findById(9L);
+		 * System.out.println("Found "+sales1.toString());
+		 */
 		 
 	}
 

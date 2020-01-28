@@ -6,21 +6,21 @@ public class CidMocks {
 
 	public static UserDto mockUser(){
 		UserDto mock = new UserDto();		
-		mock.setDepartmentId(L1);
-		mock.setTeamId(L3);
-		mock.setRoleId(L2);
-		mock.setFirstname("Mari");
-		mock.setLastname("Murumari");
-		mock.setUsername("mari.murumari@cid.com");
-		mock.setPassword("murumari1234");
+		mock.setDepartmentId(1L);
+		mock.setTeamId(3L);
+		mock.setRoleId(2L);
+		mock.setFirstname("Mirjam");
+		mock.setLastname("Maja");
+		mock.setUsername("mirjam.maja@cid.com");
+		mock.setPassword("maja1234");
 		return mock;
 	}		
 	
 	public static UserDto mockUser2(){
 		UserDto mock = new UserDto();		
-		mock.setDepartmentId(L1);
-		mock.setTeamId(L3);
-		mock.setRoleId(L2);
+		mock.setDepartmentId(1L);
+		mock.setTeamId(3L);
+		mock.setRoleId(2L);
 		mock.setFirstname("Mikk");
 		mock.setLastname("Muru");
 		mock.setUsername("mikk.muru@cid.com");

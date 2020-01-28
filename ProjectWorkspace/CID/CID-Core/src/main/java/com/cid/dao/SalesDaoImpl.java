@@ -1,6 +1,6 @@
 package com.cid.dao;
 
-import static com.cid.dao.Queries.GET_SALES_BY_USER_ID;
+
 import static com.cid.dao.Queries.GET_SALES_BY_TEAM_ID;
 import static com.cid.dao.Queries.GET_SALES_BY_ID;
 
@@ -24,7 +24,9 @@ public class SalesDaoImpl implements SalesDao{
 	
 	@Override
 	public List<Sales> findByUserId(Long userId){
-		return jdbcTemplate.query(GET_SALES_BY_USER_ID,new Object[] { userId },salesRowMapper);			
+	//	return jdbcTemplate.query(GET_SALES_BY_USER_ID,new Object[] { userId },salesRowMapper);	
+		
+		throw new UnsupportedOperationException("Not implemented");
 	}
 	
 	@Override 

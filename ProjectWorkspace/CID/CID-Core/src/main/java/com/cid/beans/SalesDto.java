@@ -15,6 +15,5 @@ public class SalesDto {
 	private int paxPerHour;
 	private int eurPerPax;
 	private int callsPerHour;	
-	
-	
+		
 }

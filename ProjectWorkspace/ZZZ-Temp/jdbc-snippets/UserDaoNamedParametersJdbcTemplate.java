@@ -29,7 +29,7 @@ public class UserDaoNamedParametersJdbcTemplate implements UserDao {
 	@Autowired
 	private UserRowMapper userRowMapper;	
 	
-	private SimpleJdbcInsert simpleJdbcInsert = new SimpleJdbcInsert(dataSource).withTableName("cid").usingGeneratedKeyColumns("id");
+	//private SimpleJdbcInsert simpleJdbcInsert = new SimpleJdbcInsert(dataSource).withTableName("cid").usingGeneratedKeyColumns("id");
 
 	@Override
 	public User findById(Long id) {

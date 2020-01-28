@@ -13,6 +13,8 @@ import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 
 import com.cid.dao.helpers.UserRowMapper;
+import com.cid.dao.helpers.UserRsExtractor;
+import com.cid.dao.helpers.SalesRowMapper;
 
 @Configuration
 @ComponentScan("com.cid.dao")
@@ -40,6 +42,16 @@ public class AppConfigCid {
 	@Bean
 	public UserRowMapper userRowMapper(){
 		return new UserRowMapper();
+	}
+	
+	@Bean
+	public UserRsExtractor userRsExtractor() {
+		return new UserRsExtractor();
+	}
+	
+	@Bean
+	public SalesRowMapper salesRowMapper(){
+		return new SalesRowMapper();
 	}
 	
 	@Bean

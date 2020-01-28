@@ -1,5 +1,8 @@
 package com.cid.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import lombok.Data;
 
 @Data
@@ -12,7 +15,6 @@ public class User {
 	private String lastname;
 	private String username;
 	private String password;	
-	
-	private Sales sales;
+	private List<User> userList = new ArrayList();
 		 
 }

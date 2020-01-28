@@ -15,5 +15,5 @@ public class Sales {
 	private int paxPerHour;
 	private int eurPerPax;
 	private int callsPerHour;	
-
+	
 }

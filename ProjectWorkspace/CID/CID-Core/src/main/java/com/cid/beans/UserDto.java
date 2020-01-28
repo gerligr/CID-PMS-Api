@@ -1,5 +1,8 @@
 package com.cid.beans;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import lombok.Data;
 
 @Data
@@ -13,6 +16,7 @@ public class UserDto {
 	private String username;
 	private String password;
 	
-	private SalesDto sales;
+	private List<SalesDto> salesList = new ArrayList();
+	
 }
 
