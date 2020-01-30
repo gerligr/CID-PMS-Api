@@ -1,5 +1,7 @@
 package com.cid.config;
 
+import java.util.Properties;
+
 import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,23 +10,25 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.env.Environment;
-import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
-
-import com.cid.dao.helpers.UserRowMapper;
-import com.cid.dao.helpers.UserRsExtractor;
-import com.cid.dao.helpers.SalesRowMapper;
+import org.springframework.orm.hibernate5.HibernateTransactionManager;
+import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
+import org.springframework.transaction.PlatformTransactionManager;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @Configuration
 @ComponentScan("com.cid.dao")
 @PropertySource("classpath:database.properties")
+@EnableTransactionManagement
 public class AppConfigCid {
 
 	private final String URL = "url";
 	private final String USER = "dbuser";
 	private final String DRIVER = "driver";
 	private final String PASSWORD = "dbpassword";
+	private final String HIBERNATE_DIALECT = "dialect";
+	private final String HIBERNATE_DDL = "hibernate.ddl";
+	private final String HIBERNATE_SHOW_SQL = "hibernate.showsql";
 	
 	@Autowired
 	private Environment env;
@@ -40,28 +44,28 @@ public class AppConfigCid {
 	}	
 	
 	@Bean
-	public UserRowMapper userRowMapper(){
-		return new UserRowMapper();
-	}
+    public LocalSessionFactoryBean sessionFactory() {
+        LocalSessionFactoryBean sessionFactory = new LocalSessionFactoryBean();
+        sessionFactory.setPackagesToScan("com.cid.model");
+        sessionFactory.setDataSource(dataSource());
+        sessionFactory.setHibernateProperties(hibernateProperties()); 
+        return sessionFactory;
+    }
 	
 	@Bean
-	public UserRsExtractor userRsExtractor() {
-		return new UserRsExtractor();
-	}
-	
-	@Bean
-	public SalesRowMapper salesRowMapper(){
-		return new SalesRowMapper();
-	}
-	
-	@Bean
-	public JdbcTemplate jdbcTemplate(DataSource datasource){
-		return new JdbcTemplate(datasource);
-	}
-	
-	@Bean
-	public NamedParameterJdbcTemplate namedParameterJdbcTemplate(DataSource datasource){
-		return new NamedParameterJdbcTemplate(datasource);
-	}	
+    public PlatformTransactionManager hibernateTransactionManager() {
+        HibernateTransactionManager transactionManager = new HibernateTransactionManager();
+        transactionManager.setSessionFactory(sessionFactory().getObject());
+        return transactionManager;
+    }
+ 
+    private Properties hibernateProperties() {
+        Properties hibernateProperties = new Properties();
+        hibernateProperties.setProperty(org.hibernate.cfg.Environment.DIALECT, env.getProperty(HIBERNATE_DIALECT));
+        hibernateProperties.setProperty(org.hibernate.cfg.Environment.HBM2DDL_AUTO,env.getProperty(HIBERNATE_DDL));
+        hibernateProperties.setProperty(org.hibernate.cfg.Environment.SHOW_SQL,env.getProperty(HIBERNATE_SHOW_SQL));
+        hibernateProperties.setProperty(org.hibernate.cfg.Environment.CURRENT_SESSION_CONTEXT_CLASS,"thread"); 
+        return hibernateProperties;
+    }
 	
 }
