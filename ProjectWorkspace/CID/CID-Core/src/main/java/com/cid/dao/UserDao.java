@@ -7,18 +7,18 @@ import com.cid.model.User;
 
 public interface UserDao {
 	
-	void createUser(UserDto userDto);
-		
-	List<User> loadAllUsers();
+	public Long createUser(User userDto);	
 	
-	User findById(Long id);
+	public User findById(Long id);
 	
-	List<User> findByTeamId(Long teamId);
+	public List<User> findByTeamId(Long teamId);
 	
-	void deleteUser(Long id);
+	public void deleteUser(User updatedUser);
 	
-	void updateUser(Long id, UserDto userDto);
+	public void updateUser(User updatedUser);
 
-	List<User> findUsersWithSales();			
-
+	public List<User> findUsersWithSales();
+	
+	public List<User> loadAllUsers();
+	
 }

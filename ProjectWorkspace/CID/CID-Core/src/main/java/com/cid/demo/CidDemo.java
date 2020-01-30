@@ -14,33 +14,34 @@ public class CidDemo {
 
 	public static void main(String[] args) {
 
-		userDaoImplByName();		
+		userDaoImplByName("userDaoHibernateBMT");	
+		//userDaoImplByName("userDaoHibernateCMT");	
 	}
 
-	private static void userDaoImplByName() {
+	private static void userDaoImplByName(String daoBeanImpl) {
 		ApplicationContext context = new AnnotationConfigApplicationContext(AppConfigCid.class);
-
-		UserDao userDao = context.getBean(UserDao.class);
-
+		UserDao userDao = context.getBean(daoBeanImpl,UserDao.class);
+		User user = userDao.findById(77L);
+		System.out.println("Found " + user.toString());
 		
-		//User user= userDao.findById(60L);
-		//System.out.println("Found "+user.toString());
+		List<User> users = userDao.findByTeamId(4L);
+		System.out.println("Found "+users.toString());
+
+		userDao.createUser(CidMocks.mockUser());
 	  
-		//List<User> users = userDao.findByTeamId(2L);
-		//System.out.println("Found "+users.toString());
-		 
-		 
-	//	userDao.createUser(CidMocks.mockUser());		
-	//	
+		userDao.deleteUser(CidMocks.mockUser2());
+		
+		//userDao.updateUser(CidMocks.mockUser3());		 
+			
+	
 	//	List<User> allUsers = userDao.loadAllUsers();
-	//	System.out.println("Users are "+allUsers.toString());
-		  
-	//	userDao.deleteUser(4L);
+	//	System.out.println("Users are "+allUsers.toString());	  
+	
 		  
 	//	userDao.updateUser(6L, CidMocks.mockUser2());
 		
-		List<User> usersWithSales = userDao.findUsersWithSales();
-		System.out.println("Users with sales "+usersWithSales.toString());
+		//List<User> usersWithSales = userDao.findUsersWithSales();
+		//System.out.println("Users with sales "+usersWithSales.toString());
 		
 		 
 	}

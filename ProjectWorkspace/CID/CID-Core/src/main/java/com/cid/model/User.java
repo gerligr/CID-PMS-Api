@@ -1,8 +1,5 @@
 package com.cid.model;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -18,8 +15,8 @@ import lombok.Data;
 @Entity
 @NamedQueries({
 	@NamedQuery(
-			name = "User_NyTeamId",
-			query = "from USER where teamId = :teamId"
+			name = "User_ByTeamId",
+			query = "from User where teamId = :teamId"
 			)
 })
 public class User {
@@ -41,6 +38,6 @@ public class User {
 	private String lastname;
 	private String username;
 	private String password;	
-	private List<User> userList = new ArrayList();
+	//private List<User> userList = new ArrayList();
 		 
 }
