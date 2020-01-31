@@ -6,19 +6,19 @@ public class CidMocks {
 
 	public static User mockUser(){
 		User mock = new User();		
-		mock.setDepartmentId(1L);
+		mock.setDepartmentId(2L);
 		mock.setTeamId(3L);
-		mock.setRoleId(2L);
-		mock.setFirstname("Mari");
-		mock.setLastname("Storm");
-		mock.setUsername("mari.storm@cid.com");
-		mock.setPassword("storm1234");
+		mock.setRoleId(4L);
+		mock.setFirstname("Sina");
+		mock.setLastname("Oled");
+		mock.setUsername("sina.oled@cid.com");
+		mock.setPassword("oled234");
 		return mock;
 	}		
 	
 	public static User mockUser2(){
 		User mock = new User();	
-		mock.setId(7L);
+	//	mock.setId(7L);
 		mock.setDepartmentId(2L);
 		mock.setTeamId(2L);
 		mock.setRoleId(3L);
@@ -31,13 +31,13 @@ public class CidMocks {
 
 	public static User mockUser3() {
 		User mock = new User();	
-		mock.setId(51L);
+		//mock.setId(51L);
 		mock.setDepartmentId(1L);
 		mock.setTeamId(3L);
 		mock.setRoleId(2L);
 		mock.setFirstname("Liina");
 		mock.setLastname("Juba");
-		mock.setUsername("liina.Juba@cid.com");
+		mock.setUsername("liina.juba@cid.com");
 		mock.setPassword("juba1234");
 		return mock;
 	}	

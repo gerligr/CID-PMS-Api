@@ -17,6 +17,10 @@ import lombok.Data;
 	@NamedQuery(
 			name = "User_ByTeamId",
 			query = "from User where teamId = :teamId"
+			),
+	@NamedQuery(
+			name= "Users",
+			query = "from User"
 			)
 })
 public class User {

@@ -8,7 +8,6 @@ import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.cid.beans.UserDto;
 import com.cid.model.User;
 
 @Repository
@@ -64,7 +63,12 @@ public class UserDaoHibernateBMT implements UserDao{
 
 	@Override
 	public List<User> loadAllUsers() {
-		throw new UnsupportedOperationException("Not yet implemented");
+		Session session = sessionFactory.getCurrentSession();
+		session.getTransaction().begin();
+		Query<User> query = session.createNamedQuery("Users", User.class);
+		List<User> users = query.getResultList();
+		session.getTransaction().commit();
+		return users;		
 	}
 
 	@Override
