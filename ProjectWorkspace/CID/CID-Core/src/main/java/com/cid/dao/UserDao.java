@@ -2,23 +2,18 @@ package com.cid.dao;
 
 import java.util.List;
 
-import com.cid.beans.UserDto;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
+import org.springframework.stereotype.Repository;
+
+import com.cid.dao.filters.UserFilter;
 import com.cid.model.User;
 
-public interface UserDao {
+@Repository
+public interface UserDao extends JpaRepository<User,Long> {
 	
-	public Long createUser(User userDto);	
-	
-	public User findById(Long id);
-	
-	public List<User> findByTeamId(Long teamId);
-	
-	public void deleteUser(User updatedUser);
-	
-	public void updateUser(User updatedUser);
+	List<User> findByTeamId(Long teamId);
 
-	public List<User> findUsersWithSales();
-	
-	public List<User> loadAllUsers();
-	
+	List<User> findAll(UserFilter userFilter);
+		
 }

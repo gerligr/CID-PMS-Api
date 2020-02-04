@@ -9,10 +9,10 @@ public class CidMocks {
 		mock.setDepartmentId(2L);
 		mock.setTeamId(3L);
 		mock.setRoleId(4L);
-		mock.setFirstname("Sina");
-		mock.setLastname("Oled");
-		mock.setUsername("sina.oled@cid.com");
-		mock.setPassword("oled234");
+		mock.setFirstname("Mina");
+		mock.setLastname("Olen");
+		mock.setUsername("mina.olen@cid.com");
+		mock.setPassword("olen234");
 		return mock;
 	}		
 	

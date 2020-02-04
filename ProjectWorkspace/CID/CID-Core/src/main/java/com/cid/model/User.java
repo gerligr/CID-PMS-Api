@@ -1,28 +1,11 @@
 package com.cid.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
+import lombok.*;
 
-import lombok.Data;
-
+import javax.persistence.*;
 
 @Data
 @Entity
-@NamedQueries({
-	@NamedQuery(
-			name = "User_ByTeamId",
-			query = "from User where teamId = :teamId"
-			),
-	@NamedQuery(
-			name= "Users",
-			query = "from User"
-			)
-})
 public class User {
 	
 	@Id
@@ -42,6 +25,6 @@ public class User {
 	private String lastname;
 	private String username;
 	private String password;	
-	//private List<User> userList = new ArrayList();
-		 
+	
+			 
 }
