@@ -5,6 +5,6 @@ import lombok.Data;
 @Data
 public class UserSearchDto {
 
-	private Long TeamId;
-	private Long DepartmentId;
+	private Long teamId;
+	private Long departmentId;
 }

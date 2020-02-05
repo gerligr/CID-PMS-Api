@@ -12,19 +12,24 @@ public class User {
 	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	private Long id;
 	
-	@Column(name="department_id")
-	private Long departmentId;
-	
-	@Column(name="team_id")
-	private Long teamId;
-	
-	@Column(name="role_id")
-	private Long roleId;
-	
 	private String firstname;
 	private String lastname;
 	private String username;
-	private String password;	
+	private String password;		
+	
+	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "department_id", referencedColumnName = "id")
+	private Department department;
+	
+	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name="team_id", referencedColumnName = "id")
+	private Team team;
+	
+	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name="role_id", referencedColumnName = "id")
+	private Role role;
+	
+	
 	
 			 
 }

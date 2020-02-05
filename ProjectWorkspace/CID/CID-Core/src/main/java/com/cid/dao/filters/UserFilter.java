@@ -5,20 +5,15 @@ import java.util.List;
 
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
-import javax.persistence.criteria.Expression;
-import javax.persistence.criteria.Join;
-import javax.persistence.criteria.JoinType;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 
-import org.apache.commons.lang3.StringUtils;
 import org.springframework.data.jpa.domain.Specification;
-import org.springframework.util.CollectionUtils;
 
 import com.cid.beans.UserSearchDto;
 import com.cid.model.User;
 
-public class UserFilter implements  Specification<User>{
+public class UserFilter implements Specification<User>{
 
 	
 	private UserSearchDto filters;
@@ -34,13 +29,13 @@ public class UserFilter implements  Specification<User>{
 		List<Predicate> predicates = new ArrayList<>();
 		 
 		if(this.filters.getDepartmentId()!=null) {
-			Predicate filterByActive=cb.equal(userTable.get("department_id"), this.filters.getDepartmentId());				
-			predicates.add(filterByActive);
+			Predicate filterByDepartmentId=cb.equal(userTable.get("departmentId"), this.filters.getDepartmentId());				
+			predicates.add(filterByDepartmentId);
 		}
 		
 		if(this.filters.getTeamId()!=null) {
-			Predicate filterByActive=cb.equal(userTable.get("team_id"), this.filters.getTeamId());			
-			predicates.add(filterByActive);
+			Predicate filterByTeamId=cb.equal(userTable.get("teamId"), this.filters.getTeamId());			
+			predicates.add(filterByTeamId);
 		}		
 	
 		 return cb.and(predicates.toArray(new Predicate[predicates.size()]));

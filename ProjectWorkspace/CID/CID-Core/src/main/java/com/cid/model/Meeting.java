@@ -1,8 +1,5 @@
 package com.cid.model;
 
-import java.util.Date;
-
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -15,7 +12,7 @@ import lombok.Data;
 
 @Data
 @Entity
-public class Sales {
+public class Meeting {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE)
@@ -25,16 +22,7 @@ public class Sales {
 	@JoinColumn(name = "user_id", referencedColumnName = "id")
 	private User user;
 	
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "team_id", referencedColumnName = "id")
-	private Team team;	
-	
-	private Date date;
-	private int week;
-	private int eurPerHour;
-	private int paxPerHour;
-	private int eurPerPax;
-	private int callsPerHour;
 	
 	
+
 }

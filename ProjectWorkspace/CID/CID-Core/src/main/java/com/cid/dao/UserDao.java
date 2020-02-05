@@ -10,10 +10,10 @@ import com.cid.dao.filters.UserFilter;
 import com.cid.model.User;
 
 @Repository
-public interface UserDao extends JpaRepository<User,Long> {
+public interface UserDao extends JpaRepository<User,Long>, JpaSpecificationExecutor<User> {
 	
 	List<User> findByTeamId(Long teamId);
 
-	List<User> findAll(UserFilter userFilter);
+	//List<User> findAll(UserFilter userFilter);
 		
 }
