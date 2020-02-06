@@ -1,7 +1,5 @@
 package com.cid.utils;
 
-import org.apache.commons.lang3.StringUtils;
-
 import com.cid.beans.UserDto;
 import com.cid.model.User;
 
@@ -13,9 +11,6 @@ public class BeanMappingUtils {
 		if (dto.getId() != null) {
 			user.setId(dto.getId());
 		}
-		user.setDepartmentId(dto.getDepartmentId());
-		user.setTeamId(dto.getTeamId());
-		user.setRoleId(dto.getRoleId());
 		user.setFirstname(dto.getFirstname());
 		user.setLastname(dto.getLastname());
 		user.setUsername(dto.getUsername());
@@ -25,9 +20,6 @@ public class BeanMappingUtils {
 
 	public static UserDto model2Dto(User user) {
 		UserDto dto = new UserDto();
-		dto.setDepartmentId(user.getDepartmentId());
-		dto.setTeamId(user.getTeamId());
-		dto.setRoleId(user.getRoleId());
 		dto.setFirstname(user.getFirstname());
 		dto.setLastname(user.getLastname());
 		dto.setUsername(user.getUsername());

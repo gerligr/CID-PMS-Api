@@ -1,5 +1,6 @@
 package com.cid.model;
 
+import javax.persistence.Column;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -17,8 +18,13 @@ public class Feedback {
 	@JoinColumn(name = "user_id", referencedColumnName = "id")
 	private User user;
 	
-	private int bookingNUmber;	
+	@Column(nullable=false)
+	private int bookingNumber;	
+	
+	@Column(nullable=false)
 	private int rate;	
+	
+	@Column(nullable=true)
 	private String comment;	
 	
 }

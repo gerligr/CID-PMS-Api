@@ -18,8 +18,8 @@ import lombok.Data;
 public class Role {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE)
-	private Long roleId;
+    @GeneratedValue
+    private Long roleId;
 	
 	private String name;
 	

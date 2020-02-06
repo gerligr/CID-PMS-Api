@@ -3,6 +3,7 @@ package com.cid.model;
 import java.sql.Time;
 import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -13,8 +14,8 @@ import javax.persistence.ManyToOne;
 public class Suggestion {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE)
-	private Long id;
+    @GeneratedValue
+    private Long id;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "user_id", referencedColumnName = "id")
@@ -24,5 +25,7 @@ public class Suggestion {
 	private Time time;	
 	private String place;
 	private String subject;
+	
+	@Column(columnDefinition = "boolean default false")
 	private boolean confirmation;
 }
