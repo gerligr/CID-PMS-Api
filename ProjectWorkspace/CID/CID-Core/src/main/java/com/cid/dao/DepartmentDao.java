@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
 import com.cid.model.Department;
 
 @Repository
-public interface DepartmentDao extends JpaRepository<Department,Long>, JpaSpecificationExecutor<Department> {
+public interface DepartmentDao extends JpaRepository<Department,Long> {
 
 	
 

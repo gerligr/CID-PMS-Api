@@ -14,7 +14,7 @@ import javax.persistence.ManyToOne;
 import lombok.Data;
 
 @Data
-@Entity
+//@Entity
 public class Sales {
 	
 	@Id

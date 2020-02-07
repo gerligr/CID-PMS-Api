@@ -1,12 +1,16 @@
 package com.cid.model;
 
-import lombok.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
-
-import javax.persistence.*;
+import lombok.Data;
 
 @Data
 @Entity
@@ -21,21 +25,20 @@ public class User {
 	private String username;
 	private String password;		
 	
-	@OneToOne()
-    @JoinColumn(name = "department_id")
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "department_id")
 	private Department department;
 
-	/*
-
-	@OneToOne(cascade = CascadeType.ALL)
+	@ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "team_id")
 	private Team team;	
 	
-	@OneToOne(cascade = CascadeType.ALL)
+	/*
+	@ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "role_id")
 	private Role role;
 	
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "user")
+	@ManyToMany(fetch = FetchType.LAZY)
 	private List<Meeting> meetings = new ArrayList<>();	
 	
 	*/

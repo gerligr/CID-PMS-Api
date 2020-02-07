@@ -36,7 +36,7 @@ public class UserService {
 	
 	public Long saveUser(UserDto userDto) {			
 		
-		 Department department = departmentDao.findById(userDto.getDepartment().getDepartmentId()).orElseThrow();
+		 Department department = departmentDao.findById(userDto.getDepartment().getId()).orElseThrow(null);
 		 		 
 		 User user = BeanMappingUtils.dto2Model(userDto);	
 		 user.setDepartment(department);
@@ -64,16 +64,12 @@ public class UserService {
 		}
 	}	
 	
-	public List<User> searchUsers(UserSearchDto filters){
+	/*public List<User> searchUsers(UserSearchDto filters){
 		return userDao.findAll(new UserFilter(filters));				
 	}
 	
-	public List<User> viewAllCourses(){
+	public List<User> viewAllUsers(){
 		return userDao.findAll();		
-	}
+	}*/
 	
-	public List<User> findByTeamId(Long teamId){
-		return userDao.findByTeamId(teamId);
-	}
-
 }

@@ -10,7 +10,7 @@ public class UserDto {
 	private String username;
 	private String password;		
 	private DepartmentDto department;
-	//private TeamDto team;
+	private TeamDto team;
 	 
 }
 

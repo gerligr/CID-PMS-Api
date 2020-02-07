@@ -44,7 +44,7 @@ public class UserRestController {
         return new ResponseBean<UserDto>(userDto);
     }
    
-    @RequestMapping(value = "/search", method = RequestMethod.POST,
+    /*@RequestMapping(value = "/search", method = RequestMethod.POST,
             produces = MediaType.APPLICATION_JSON_VALUE,
             consumes= MediaType.APPLICATION_JSON_VALUE)
     public @ResponseBody
@@ -54,7 +54,7 @@ public class UserRestController {
                 .map(BeanMappingUtils::model2Dto)
                 .collect(Collectors.toList());
         return new ResponseBean<List<UserDto>>(userDtos);
-    }
+    }*/
     
     @RequestMapping(value = "/edit", method = RequestMethod.POST,
     		produces = MediaType.APPLICATION_JSON_VALUE,
