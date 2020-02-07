@@ -29,11 +29,22 @@ public class Sales {
 	@JoinColumn(name = "team_id", referencedColumnName = "id")
 	private Team team;	
 	
+	@Column(nullable=false)
 	private Date date;
+	
+	@Column(nullable=false)
 	private int week;
+	
+	@Column(nullable=false)
 	private int eurPerHour;
+	
+	@Column(nullable=false)
 	private int paxPerHour;
+	
+	@Column(nullable=false)
 	private int eurPerPax;
+	
+	@Column(nullable=false)
 	private int callsPerHour;
 	
 	

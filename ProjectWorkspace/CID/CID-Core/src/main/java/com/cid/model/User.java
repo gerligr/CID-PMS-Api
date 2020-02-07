@@ -4,6 +4,7 @@ import lombok.*;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import javax.persistence.*;
 
@@ -13,7 +14,6 @@ public class User {
 	
 	@Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    @Column(name = "id")
     private Long id;
 	
 	private String firstname;
@@ -21,24 +21,23 @@ public class User {
 	private String username;
 	private String password;		
 	
-	@OneToOne(cascade = CascadeType.ALL)
+	@OneToOne()
     @JoinColumn(name = "department_id")
 	private Department department;
-	
+
+	/*
+
 	@OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "team_id")
-	private Team teamId;
+	private Team team;	
 	
 	@OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "role_id")
-	private Role roleId;
+	private Role role;
 	
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "user")
-	private List<Meeting> meetings = new ArrayList<>();
-
+	private List<Meeting> meetings = new ArrayList<>();	
 	
-	
-	
-	
+	*/
 			 
 }
