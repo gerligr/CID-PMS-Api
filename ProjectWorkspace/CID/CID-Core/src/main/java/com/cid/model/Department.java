@@ -14,8 +14,9 @@ import javax.persistence.OneToOne;
 public class Department {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE)
-    private Long departmentId;
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name = "department_id")
+    private Long id;
 		
 	private String name;
 	

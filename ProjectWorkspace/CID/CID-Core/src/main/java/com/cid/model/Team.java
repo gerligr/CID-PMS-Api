@@ -6,6 +6,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 
 import lombok.Data;
 
@@ -18,6 +19,9 @@ public class Team {
     private Long teamId;
 	
 	private String name;
+	
+	@OneToOne(mappedBy = "team")
+	private User user;
 	
 	/*@ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "department_id")

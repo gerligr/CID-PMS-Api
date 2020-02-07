@@ -23,7 +23,7 @@ public class User {
 	
 	@OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "department_id")
-	private Department departmentId;
+	private Department department;
 	
 	@OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "team_id")

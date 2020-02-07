@@ -10,6 +10,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 import lombok.Data;
 
@@ -22,6 +23,9 @@ public class Role {
     private Long roleId;
 	
 	private String name;
+	
+	@OneToOne(mappedBy = "role")
+	private User user;
 	
 	@OneToMany(fetch=FetchType.LAZY, cascade = {CascadeType.PERSIST,CascadeType.MERGE}, mappedBy="role")
 	private List<User> users = new ArrayList<>();
