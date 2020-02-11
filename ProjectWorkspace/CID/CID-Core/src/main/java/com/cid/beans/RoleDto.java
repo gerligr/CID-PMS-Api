@@ -3,16 +3,16 @@ package com.cid.beans;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.cid.model.Team;
+import com.cid.model.User;
 
 import lombok.Data;
 
 @Data
-public class DepartmentDto {
+public class RoleDto {
 	
 	private Long id;
-	private String name;
+	private String name;	
 	
-	private List<Team> team = new ArrayList<>();
+	private List<User> user = new ArrayList<>();
 	
 }

@@ -14,7 +14,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @ComponentScan("com.cid.service")
 @EnableJpaRepositories(basePackages = "com.cid.dao")
 @EntityScan(basePackages = {"com.cid.model"})
-@PropertySource("classpath:application.properties")
+@PropertySource("classpath:test-application.properties")
 public class AppConfigIntegrationTestEnv {	
 	
 }

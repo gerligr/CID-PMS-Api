@@ -11,7 +11,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 
 import lombok.Data;
 
@@ -27,6 +26,6 @@ public class Department {
 	private String name;
 	
 	@OneToMany(fetch=FetchType.LAZY, cascade = {CascadeType.PERSIST,CascadeType.MERGE}, mappedBy="department")
-	private List<User> user = new ArrayList<>();;
-	
+	private List<Team> team = new ArrayList<>();	
+		
 }

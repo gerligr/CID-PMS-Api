@@ -10,9 +10,11 @@ import lombok.Data;
 @Data
 public class TeamDto {
 	
-	private Long teamId;
+	private Long id;
 	private String name;	
 	
 	private List<User> user = new ArrayList<>();
+	
+	private DepartmentDto department;
 	
 }

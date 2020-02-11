@@ -4,11 +4,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 import lombok.Data;
@@ -19,11 +22,16 @@ public class Team {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE)
+	@Column(name = "team_id")
     private Long id;
 	
 	private String name;
 	
-	@OneToMany(fetch=FetchType.LAZY, cascade = {CascadeType.PERSIST,CascadeType.MERGE}, mappedBy="team")
+	@ManyToOne(fetch=FetchType.EAGER)
+	@JoinColumn(name = "department_id")
+	private Department department;
+	
+	@OneToMany(cascade = {CascadeType.PERSIST,CascadeType.MERGE}, mappedBy="team")
 	private List<User> user = new ArrayList<>();	
 	
 }
