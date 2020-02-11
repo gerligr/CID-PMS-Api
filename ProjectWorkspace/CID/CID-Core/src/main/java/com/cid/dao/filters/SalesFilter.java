@@ -31,7 +31,7 @@ public class SalesFilter implements Specification<Sales>{
 		List<Predicate> predicates = new ArrayList<>();
 		 
 		if(this.filters.getUser()!=null) {
-			Predicate filterByUser = cb.equal(salesTable.get("user_id"), this.filters.getUser());				
+			Predicate filterByUser = cb.equal(salesTable.get("user_id"), this.filters.getUser().getId());				
 			predicates.add(filterByUser);
 		}		
 		 return cb.and(predicates.toArray(new Predicate[predicates.size()]));
