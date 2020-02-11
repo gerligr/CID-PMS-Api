@@ -14,5 +14,5 @@ public class SalesDto {
 	private int eurPerPax;
 	private int callsPerHour;	
 	
-	/*private UserDto user;	*/	
+	private UserDto user;
 }

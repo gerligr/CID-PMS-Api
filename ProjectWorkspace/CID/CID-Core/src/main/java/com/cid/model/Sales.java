@@ -3,7 +3,6 @@ package com.cid.model;
 import java.util.Date;
 
 import javax.persistence.Column;
-import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -19,15 +18,7 @@ public class Sales {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE)
-	private Long id;
-	
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "user_id", referencedColumnName = "id")
-	private User user;
-	
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "team_id", referencedColumnName = "id")
-	private Team team;	
+	private Long id;	
 	
 	@Column(nullable=false)
 	private Date date;
@@ -35,17 +26,19 @@ public class Sales {
 	@Column(nullable=false)
 	private int week;
 	
-	@Column(nullable=false)
+	@Column(name = "eur_per_hour", nullable=false)
 	private int eurPerHour;
 	
-	@Column(nullable=false)
+	@Column(name = "pax_per_hour", nullable=false)
 	private int paxPerHour;
 	
-	@Column(nullable=false)
+	@Column(name="eur_per_pax", nullable=false)
 	private int eurPerPax;
 	
-	@Column(nullable=false)
+	@Column(name="calls_per_hour", nullable=false)
 	private int callsPerHour;
 	
-	
+	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name = "user_id")
+	private User user;	
 }

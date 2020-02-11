@@ -10,8 +10,6 @@ import com.cid.dao.RoleDao;
 import com.cid.dao.TeamDao;
 import com.cid.dao.UserDao;
 import com.cid.exceptions.UserException;
-import com.cid.model.Role;
-import com.cid.model.Team;
 import com.cid.model.User;
 import com.cid.utils.BeanMappingUtils;
 
@@ -27,11 +25,7 @@ public class UserService {
 	private TeamDao teamDao;
 	
 	@Autowired
-	private RoleDao roleDao;
-	
-	public User save(User user) {
-		return userDao.save(user);
-	}
+	private RoleDao roleDao;	
 	
 	public Long saveUser(UserDto userDto) {			
 		
