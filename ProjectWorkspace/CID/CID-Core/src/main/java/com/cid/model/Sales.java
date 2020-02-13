@@ -22,7 +22,7 @@ public class Sales {
 	private Long id;	
 	
 	@Column(nullable=false)
-	private Date date;
+	private String date;
 	
 	@Column(nullable=false)
 	private int week;

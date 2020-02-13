@@ -6,5 +6,5 @@ import lombok.Data;
 public class UserSearchDto {
 
 	private Long teamId;
-	private Long departmentId;
+	
 }

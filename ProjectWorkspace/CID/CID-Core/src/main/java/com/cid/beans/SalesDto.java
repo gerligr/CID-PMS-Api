@@ -7,7 +7,7 @@ import lombok.Data;
 @Data
 public class SalesDto {
 	private Long id;	
-	private Date date;
+	private String date;
 	private int week;
 	private int eurPerHour;
 	private int paxPerHour;

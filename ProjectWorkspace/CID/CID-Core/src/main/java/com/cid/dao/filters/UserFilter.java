@@ -15,7 +15,6 @@ import com.cid.model.User;
 
 public class UserFilter implements Specification<User>{
 
-	
 	private UserSearchDto filters;
 	
 	public UserFilter (UserSearchDto filters) {
@@ -28,14 +27,9 @@ public class UserFilter implements Specification<User>{
 		
 		List<Predicate> predicates = new ArrayList<>();
 		 
-		if(this.filters.getDepartmentId()!=null) {
-			Predicate filterByDepartmentId=cb.equal(userTable.get("departmentId"), this.filters.getDepartmentId());				
-			predicates.add(filterByDepartmentId);
-		}
-		
 		if(this.filters.getTeamId()!=null) {
-			Predicate filterByTeamId=cb.equal(userTable.get("teamId"), this.filters.getTeamId());			
-			predicates.add(filterByTeamId);
+			Predicate filterByTeam =cb.equal(userTable.get("team").get("id"), this.filters.getTeamId());			
+			predicates.add(filterByTeam);
 		}		
 	
 		 return cb.and(predicates.toArray(new Predicate[predicates.size()]));
