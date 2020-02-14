@@ -20,7 +20,7 @@ import com.cid.utils.BeanMappingUtils;
 import com.cid.web.beans.ResponseBean;
 
 @Controller
-@CrossOrigin
+@CrossOrigin(origins = "*")
 @RequestMapping("/rest/sales")
 public class SalesRestController {
 
