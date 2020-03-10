@@ -25,6 +25,9 @@ public class Sales {
 	@Column(nullable=false)
 	private int week;
 	
+	@Column(nullable=false)
+	private String month;
+	
 	@Column(name = "eur_per_hour", nullable=false)
 	private int eurPerHour;
 	
@@ -40,4 +43,5 @@ public class Sales {
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "user_id")
 	private User user;	
+	
 }
