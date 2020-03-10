@@ -17,7 +17,7 @@ public class Sales {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE)
-	private Long id;	
+	private long id;	
 	
 	@Column(nullable=false)
 	private String date;
@@ -29,16 +29,16 @@ public class Sales {
 	private String month;
 	
 	@Column(name = "eur_per_hour", nullable=false)
-	private int eurPerHour;
+	private double eurPerHour;
 	
 	@Column(name = "pax_per_hour", nullable=false)
-	private int paxPerHour;
+	private double paxPerHour;
 	
 	@Column(name="eur_per_pax", nullable=false)
-	private int eurPerPax;
+	private double eurPerPax;
 	
 	@Column(name="calls_per_hour", nullable=false)
-	private int callsPerHour;
+	private double callsPerHour;
 	
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "user_id")

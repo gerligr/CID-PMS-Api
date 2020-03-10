@@ -21,7 +21,7 @@ public class Department {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "department_id")
-    private Long id;
+    private long id;
 		
 	private String name;
 	

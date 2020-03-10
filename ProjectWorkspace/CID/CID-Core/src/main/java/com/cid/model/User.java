@@ -23,7 +23,7 @@ public class User {
 	
 	@Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    private Long id;
+    private long id;
 	
 	private String firstname;
 	private String lastname;

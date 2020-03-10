@@ -20,7 +20,7 @@ public class Meeting {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE)
-    private Long id;
+    private long id;
 	
 	@Column(nullable=false)
 	private Date date;

@@ -10,7 +10,7 @@ import lombok.Data;
 @Data
 public class TeamDto {
 	
-	private Long id;
+	private long id;
 	private String name;	
 	
 	private List<User> user = new ArrayList<>();

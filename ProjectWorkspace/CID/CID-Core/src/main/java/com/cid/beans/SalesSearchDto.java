@@ -5,6 +5,6 @@ import lombok.Data;
 @Data
 public class SalesSearchDto {
 	
-	private Long userId;
+	private long userId;
 
 }
