@@ -23,7 +23,7 @@ public class Team {
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	@Column(name = "team_id")
-    private long id;
+    private Long id;
 	
 	private String name;
 	

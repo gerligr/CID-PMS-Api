@@ -34,7 +34,7 @@ public class UserService {
 		 return savedUser.getId();
 	}
 
-	public UserDto findById(long id) {				
+	public UserDto findById(Long id) {				
 		if (!(userDao.findById(id).isPresent())){
 			throw new UserException("User was not found!");
 		} else {

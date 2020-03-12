@@ -4,7 +4,7 @@ import lombok.Data;
 
 @Data
 public class UserSales {
-	private long userId;
+	private Long userId;
 	private double avgWeeklyEurSales;
 	private double avgWeeklyPaxSales;
 	private double avgWeeklyExtraSales;

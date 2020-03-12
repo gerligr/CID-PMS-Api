@@ -19,7 +19,7 @@ public class Suggestion {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE)
-    private long id;
+    private Long id;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "user_id")
