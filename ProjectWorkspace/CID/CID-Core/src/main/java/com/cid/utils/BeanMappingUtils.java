@@ -4,10 +4,12 @@ import com.cid.beans.RoleDto;
 import com.cid.beans.SalesDto;
 import com.cid.beans.TeamDto;
 import com.cid.beans.UserDto;
+import com.cid.beans.UserSalesDto;
 import com.cid.model.Role;
 import com.cid.model.Sales;
 import com.cid.model.Team;
 import com.cid.model.User;
+import com.cid.model.UserSales;
 
 public class BeanMappingUtils {
 
@@ -46,7 +48,7 @@ public class BeanMappingUtils {
 	}
 	
 	public static TeamDto teamModel2Dto(Team team) {
-		TeamDto teamDto = new TeamDto();
+		TeamDto teamDto = new TeamDto();	
 		teamDto.setId(team.getId());
 		teamDto.setName(team.getName());
 		return teamDto;
@@ -90,6 +92,34 @@ public class BeanMappingUtils {
 		salesDto.setCallsPerHour(sales.getCallsPerHour());
 		salesDto.setUser(model2Dto(sales.getUser()));
 		return salesDto;
+	}
+
+	public static UserSalesDto userSalesModelToDto(UserSales userSales) {
+		UserSalesDto userSalesDto = new UserSalesDto();
+		userSalesDto.setUserId(userSales.getUserId());
+		userSalesDto.setAvgWeeklyEurSales(userSales.getAvgWeeklyEurSales());
+		userSalesDto.setAvgWeeklyPaxSales(userSales.getAvgWeeklyPaxSales());
+		userSalesDto.setAvgWeeklyExtraSales(userSales.getAvgWeeklyExtraSales());
+		userSalesDto.setAvgWeeklyCalls(userSales.getAvgWeeklyCalls());
+		userSalesDto.setAvgMonthlyEurSales(userSales.getAvgMonthlyEurSales());
+		userSalesDto.setAvgMonthlyPaxSales(userSales.getAvgMonthlyPaxSales());
+		userSalesDto.setAvgMonthlyExtraSales(userSales.getAvgMonthlyExtraSales());
+		userSalesDto.setAvgMonthlyCalls(userSales.getAvgMonthlyCalls());
+		return userSalesDto;
+	}
+	
+	public static UserSales userSalesDto2Model(UserSalesDto userSalesDto) {
+		UserSales userSales = new UserSales();
+		userSales.setUserId(userSalesDto.getUserId());
+		userSales.setAvgWeeklyEurSales(userSalesDto.getAvgWeeklyEurSales());
+		userSales.setAvgWeeklyPaxSales(userSalesDto.getAvgWeeklyPaxSales());
+		userSales.setAvgWeeklyExtraSales(userSalesDto.getAvgWeeklyExtraSales());
+		userSales.setAvgWeeklyCalls(userSalesDto.getAvgWeeklyCalls());
+		userSales.setAvgMonthlyEurSales(userSalesDto.getAvgMonthlyEurSales());
+		userSales.setAvgMonthlyPaxSales(userSalesDto.getAvgMonthlyPaxSales());
+		userSales.setAvgMonthlyExtraSales(userSalesDto.getAvgMonthlyExtraSales());
+		userSales.setAvgMonthlyCalls(userSalesDto.getAvgMonthlyCalls());
+		return userSales;
 	}
 	
 }
